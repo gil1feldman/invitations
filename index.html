@@ -12,14 +12,14 @@
     }
     .form-section {
       background-color: #fff;
-      padding: 10px 15px;
-      margin-bottom: 20px;
+      padding: 8px 12px;
+      margin-bottom: 15px;
       border-radius: 10px;
       box-shadow: 0 1px 6px rgba(0,0,0,0.08);
-      max-width: 500px;
+      max-width: 480px;
       margin-right: auto;
       margin-left: auto;
-      font-size: 14px;
+      font-size: 13px;
     }
     .form-section label {
       display: block;
@@ -28,15 +28,15 @@
     }
     .form-section input {
       width: 100%;
-      padding: 6px 8px;
-      margin-bottom: 12px;
+      padding: 5px 7px;
+      margin-bottom: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      font-size: 14px;
+      font-size: 13px;
     }
     .save-button {
       display: block;
-      margin: 0 auto 30px;
+      margin: 0 auto 25px;
       padding: 10px 18px;
       background-color: #2c3e50;
       color: white;
@@ -53,7 +53,6 @@
       margin: 0 auto;
       text-align: center;
       box-shadow: 0 0 20px rgba(0,0,0,0.15);
-      position: relative;
     }
     .banner {
       width: 100%;
@@ -65,26 +64,47 @@
     .invitation h1 {
       font-size: 36px;
       color: #2c3e50;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
     .invitation .text-block {
-      text-align: right;
+      text-align: center;
       font-size: 18px;
       color: #333;
       margin-bottom: 30px;
       line-height: 1.8;
     }
+    .invitation .text-block .question {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .invitation .text-block .question span {
+      font-size: 20px;
+    }
     .invitation .text-block strong {
       display: block;
-      margin-top: 15px;
+      margin-top: 20px;
       font-size: 20px;
       color: #000;
     }
-    .invitation .details {
-      font-size: 24px;
-      margin: 10px 0;
-      color: #1a1a1a;
+    .details-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .details-section .label {
       font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .details-section .value {
+      font-size: 20px;
+      color: #1a1a1a;
     }
   </style>
 </head>
@@ -94,7 +114,7 @@
     <input type="text" id="title" placeholder="הכניסו את שם ההרצאה" oninput="updateInvitation()">
 
     <label for="datetime">תאריך ושעה:</label>
-    <input type="text" id="datetime" placeholder="הכניסו את התאריך והשעה" oninput="updateInvitation()">
+    <input type="text" id="datetime" placeholder="לדוגמה: 14 באפריל 2025, 20:00" oninput="updateInvitation()">
 
     <label for="location">מקום:</label>
     <input type="text" id="location" placeholder="הכניסו את מיקום ההרצאה" oninput="updateInvitation()">
@@ -109,9 +129,9 @@
     <div class="banner"></div>
     <h1 id="invTitle">שם ההרצאה יופיע כאן</h1>
     <div class="text-block">
-      🎓 <strong>האם כל מה שכתוב בויקיפדיה באמת נכון?</strong><br>
-      📚 <strong>איך מזהים מניפולציות בתוך ערכים שנראים אובייקטיביים?</strong><br>
-      🧠 <strong>ומי באמת משפיע על התוכן בויקיפדיה?</strong>
+      <div class="question"><span>🎓</span> האם כל מה שכתוב בויקיפדיה באמת נכון?</div>
+      <div class="question"><span>📚</span> איך מזהים מניפולציות בתוך ערכים שנראים אובייקטיביים?</div>
+      <div class="question"><span>🧠</span> ומי באמת משפיע על התוכן בויקיפדיה?</div>
 
       <p>אני מזמין אתכם להרצאה מרתקת שתעסוק בקריאה ביקורתית של ערכים בויקיפדיה – האנציקלופדיה החופשית שכולנו משתמשים בה, אבל מעטים באמת יודעים איך היא פועלת.</p>
 
@@ -121,9 +141,21 @@
       🧭 טיפים וכלים לקריאה ביקורתית – איך לזהות מידע חסר, מקורות לא אמינים והטיה עריכתית<br>
       🧾 איך לבדוק מקורות ולקרוא בין השורות – לא ליפול בפח של מראית עין של סמכות
     </div>
-    <div class="details" id="invDatetime">תאריך ושעה</div>
-    <div class="details" id="invLocation">מקום</div>
-    <div class="details" id="invPrice">עלות</div>
+
+    <div class="details-section">
+      <div>
+        <div class="label">🗓 תאריך ושעה:</div>
+        <div class="value" id="invDatetime">תאריך ושעה</div>
+      </div>
+      <div>
+        <div class="label">📍 מקום:</div>
+        <div class="value" id="invLocation">מקום</div>
+      </div>
+      <div>
+        <div class="label">💰 עלות:</div>
+        <div class="value" id="invPrice">עלות</div>
+      </div>
+    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
