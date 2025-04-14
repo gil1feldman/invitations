@@ -46,7 +46,7 @@
       cursor: pointer;
     }
     .invitation {
-      background-color: #fff;
+      background-color: #f0f4f8;
       border-radius: 20px;
       padding: 40px;
       max-width: 700px;
@@ -90,21 +90,29 @@
       font-size: 20px;
       color: #000;
     }
-    .details-section {
+    .details-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .details-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 20px 25px;
+      min-width: 180px;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      color: #2c3e50;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 10px;
-      margin-top: 20px;
     }
-    .details-section .label {
-      font-weight: bold;
-      font-size: 16px;
-      margin-bottom: 4px;
-    }
-    .details-section .value {
-      font-size: 20px;
-      color: #1a1a1a;
+    .details-card span {
+      font-size: 22px;
     }
   </style>
 </head>
@@ -142,19 +150,10 @@
       🧾 איך לבדוק מקורות ולקרוא בין השורות – לא ליפול בפח של מראית עין של סמכות
     </div>
 
-    <div class="details-section">
-      <div>
-        <div class="label">🗓 תאריך ושעה:</div>
-        <div class="value" id="invDatetime">תאריך ושעה</div>
-      </div>
-      <div>
-        <div class="label">📍 מקום:</div>
-        <div class="value" id="invLocation">מקום</div>
-      </div>
-      <div>
-        <div class="label">💰 עלות:</div>
-        <div class="value" id="invPrice">עלות</div>
-      </div>
+    <div class="details-cards">
+      <div class="details-card"><span>🗓</span><div id="invDatetime">תאריך ושעה</div></div>
+      <div class="details-card"><span>📍</span><div id="invLocation">מקום</div></div>
+      <div class="details-card"><span>💰</span><div id="invPrice">עלות</div></div>
     </div>
   </div>
 
