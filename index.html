@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>תבנית הזמנה להרצאה</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .form-section {
+      background-color: #ffffff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .form-section label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .form-section input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .invitation {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .banner img {
+      height: 80px;
+    }
+    .invitation h1 {
+      font-size: 32px;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    .invitation p {
+      font-size: 20px;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-section">
+    <label for="title">שם ההרצאה:</label>
+    <input type="text" id="title" placeholder="הכניסו את שם ההרצאה" oninput="updateInvitation()">
+
+    <label for="datetime">תאריך ושעה:</label>
+    <input type="text" id="datetime" placeholder="הכניסו את התאריך והשעה" oninput="updateInvitation()">
+
+    <label for="location">מקום:</label>
+    <input type="text" id="location" placeholder="הכניסו את מיקום ההרצאה" oninput="updateInvitation()">
+
+    <label for="price">עלות:</label>
+    <input type="text" id="price" placeholder="הכניסו את עלות ההרצאה" oninput="updateInvitation()">
+  </div>
+
+  <div class="invitation">
+    <div class="banner">
+      <img src="https://raw.githubusercontent.com/gil1feldman/invitations/main/HAMATZAV_LOGO.png" alt="המצב לוגו">
+      <img src="https://raw.githubusercontent.com/gil1feldman/invitations/main/Wikipedia-logo.png" alt="ויקיפדיה לוגו">
+    </div>
+    <h1 id="invTitle">שם ההרצאה יופיע כאן</h1>
+    <p id="invDatetime">תאריך ושעה</p>
+    <p id="invLocation">מקום</p>
+    <p id="invPrice">עלות</p>
+  </div>
+
+  <script>
+    function updateInvitation() {
+      document.getElementById("invTitle").textContent = document.getElementById("title").value || "שם ההרצאה יופיע כאן";
+      document.getElementById("invDatetime").textContent = document.getElementById("datetime").value || "תאריך ושעה";
+      document.getElementById("invLocation").textContent = document.getElementById("location").value || "מקום";
+      document.getElementById("invPrice").textContent = document.getElementById("price").value || "עלות";
+    }
+  </script>
+</body>
+</html>
